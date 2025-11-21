@@ -95,3 +95,7 @@ Nếu gặp vấn đề, liên hệ:
 C:\Users\thang\source\repos\ntp224\T27-WEB2\
 
 .\deploy.ps1
+
+# Tạo commit mới để trigger workflow
+git commit --allow-empty -m "Trigger GitHub Pages deployment"
+git push origin main
