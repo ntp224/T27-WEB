@@ -7,6 +7,39 @@
     <title>Đội Ngũ Chuyên Gia - T27 Công Ty Cổ Phần Tư Vấn</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: white;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
         /* Hero Section - Smaller, Left Aligned */
         .experts-hero {
             background: linear-gradient(135deg, #1e5366 0%, #0d4a5f 100%);
@@ -287,7 +320,91 @@
             color: #666;
         }
 
-        /* Mobile Responsive */
+        /* Navigation - Hamburger Menu */
+        .navbar {
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 80px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-image {
+            width: 150px;
+            height: auto;
+        }
+
+        .logo-tagline {
+            font-size: 0.9em;
+            color: #666;
+            display: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #0088cc;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger spans {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: #333;
+            margin-bottom: 5px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Styles */
         @media (max-width: 1024px) {
             .experts-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -300,6 +417,70 @@
         }
 
         @media (max-width: 768px) {
+            /* Hamburger Menu Display */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Hide/Show Nav Menu */
+            .nav-menu {
+                position: fixed;
+                top: 95px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 95px);
+                background: rgba(0, 45, 77, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 30px 0;
+                transition: left 0.3s ease;
+                overflow-y: auto;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 18px 20px;
+                font-size: 1em;
+                width: 100%;
+            }
+
+            .nav-menu a:hover {
+                background: rgba(255, 107, 53, 0.2);
+            }
+
+            /* Logo adjustments */
+            .logo-container {
+                min-width: auto;
+                gap: 10px;
+            }
+
+            .logo-tagline {
+                font-size: 1.2em;
+                padding-left: 10px;
+            }
+
+            .logo-image {
+                height: 50px;
+            }
+
+            /* Nav container */
+            .nav-container {
+                padding: 12px 20px;
+            }
+
             .experts-hero {
                 padding: 140px 20px 50px;
             }
@@ -344,20 +525,22 @@
             .expert-image-wrapper {
                 height: 240px;
             }
-            
-            /* Contact bar responsive */
-            .contact-bar-content {
-                flex-direction: column;
-                gap: 8px;
-                text-align: center;
-            }
-            
-            .contact-item {
-                font-size: 0.85em;
-            }
         }
 
         @media (max-width: 480px) {
+            .logo-tagline {
+                font-size: 1em;
+            }
+
+            .logo-image {
+                height: 40px;
+            }
+
+            .nav-menu {
+                top: 85px;
+                height: calc(100vh - 85px);
+            }
+
             .experts-hero {
                 padding: 120px 15px 40px;
             }
@@ -422,10 +605,9 @@
                 font-size: 1.4em;
             }
             
-            /* Contact bar for very small screens */
-            .contact-item {
-                font-size: 0.8em;
-                padding: 3px 0;
+            /* Navigation - Hamburger Menu */
+            .nav-menu {
+                padding: 15px;
             }
         }
         
@@ -454,7 +636,15 @@
                 <img src="images/logo-t27.png" alt="T27 Logo" class="logo-image" onerror="this.src='images/logo-t27.svg'">
                 <div class="logo-tagline">Cái tâm mọi công trình</div>
             </div>
-            <ul class="nav-menu">
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="gioi-thieu.html">Giới thiệu</a></li>
                 <li><a href="du-an.html">Dự án</a></li>
@@ -467,21 +657,6 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Contact Bar -->
-    <div class="contact-bar">
-        <div class="contact-bar-content">
-            <div class="contact-item">
-                <strong>📞 Hotline:</strong> 058.2210226 | 0913.431.515
-            </div>
-            <div class="contact-item">
-                <strong>✉ Email:</strong> t27_vn@yahoo.com
-            </div>
-            <div class="contact-item">
-                <strong>📍 Địa chỉ:</strong> Nha Trang, Khánh Hòa | Quy Nhơn, Bình Định
-            </div>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <div class="experts-hero">
@@ -719,7 +894,7 @@
                 </div>
                 <div class="expert-content">
                     <h3 class="expert-name">KS. Bùi Quang Huy</h3>
-                    <p class="expert-title">Chuyên viên Giám sát Hạ tầng Kỹ thuật</p>
+                    <p class="expert-title">Chuyên viên Giám sát Hạ infrastructure Kỹ thuật</p>
                     <p class="expert-specialties">Chứng chỉ hành nghề Giám sát Hạng II • 9 năm giám sát thi công hạ tầng</p>
                     <a href="#" class="view-more">Xem chi tiết</a>
                 </div>
@@ -831,6 +1006,7 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
             const navbar = document.querySelector('.navbar');
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 100) {
@@ -839,6 +1015,46 @@
                     navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
                 }
             });
+
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    
+                    // Prevent body scroll when menu is open
+                    if (navMenu.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                // Close menu when clicking on a link
+                const navLinks = navMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideNav = navMenu.contains(event.target);
+                    const isClickOnHamburger = hamburger.contains(event.target);
+                    
+                    if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
         });
     </script>
 </body>
