@@ -428,34 +428,26 @@
                 <img src="images/logo-t27.png" alt="T27 Logo" class="logo-image" onerror="this.src='images/logo-t27.svg'">
                 <div class="logo-tagline">Cái tâm mọi công trình</div>
             </div>
-            <ul class="nav-menu">
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="gioi-thieu.html">Giới thiệu</a></li>
                 <li><a href="du-an.html">Dự án</a></li>
                 <li><a href="doi-ngu-chuyen-gia.html">Đội ngũ chuyên gia</a></li>
                 <li><a href="cong-nghe-so.html">Công nghệ số</a></li>
-                <li><a href="su-kien.html">Sự kiện</a></li>
                 <li><a href="tin-tuc.html" style="color: var(--primary-orange);">Tin tức</a></li>
                 <li><a href="chinh-sach.html">Chính sách</a></li>
                 <li><a href="lien-he.html">Liên hệ</a></li>
             </ul>
         </div>
     </nav>
-
-    <!-- Contact Bar -->
-    <div class="contact-bar">
-        <div class="contact-bar-content">
-            <div class="contact-item">
-                <strong>📞 Hotline:</strong> 058.2210226 | 0913.431.515
-            </div>
-            <div class="contact-item">
-                <strong>✉ Email:</strong> t27_vn@yahoo.com
-            </div>
-            <div class="contact-item">
-                <strong>📍 Địa chỉ:</strong> Nha Trang, Khánh Hòa | Quy Nhơn, Bình Định
-            </div>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <div class="insights-hero">
@@ -619,7 +611,7 @@
                 <div class="insight-image-wrapper">
                     <img src="images/insights/drone.jpg" alt="Drone" class="insight-image"
                          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22280%22%3E%3Crect fill=%22%232d6a7f%22 width=%22400%22 height=%22280%22/%3E%3Ctext fill=%22white%22 font-family=%22Arial%22 font-size=%2224%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EDrone%3C/text%3E%3C/svg%3E'">
-                    <span class="category-badge">CÔNG NGHỆ</span>
+                    <span class="category-badge">CÔNG NGHỆ</span>
                 </div>
                 <div class="insight-content">
                     <h3 class="insight-title">Ứng dụng UAV/Drone trong khảo sát địa hình</h3>
@@ -997,6 +989,14 @@
                 } else {
                     navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
                 }
+            });
+
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
             });
         });
     </script>
