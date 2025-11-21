@@ -1,4 +1,4 @@
-// Hero Slider
+Ôªø// Hero Slider
 let currentSlide = 0;
 const slides = document.querySelectorAll('.hero-slide');
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     controlPanel.innerHTML = `
         <div class="control-header">
             <span class="control-title">?? ?i?u Ch?nh ?? M? Banner</span>
-            <button class="close-btn" id="closePanel">◊</button>
+            <button class="close-btn" id="closePanel">√ó</button>
         </div>
         <div class="slider-container">
             <div class="slider-label">
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="control-buttons">
             <button class="control-btn reset-btn" id="resetBtn">??t l?i</button>
-            <button class="control-btn apply-btn" id="applyBtn">¡p d?ng</button>
+            <button class="control-btn apply-btn" id="applyBtn">√Åp d?ng</button>
         </div>
     `;
     document.body.appendChild(controlPanel);
@@ -102,11 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('heroOverlayOpacity', opacity);
         
         // Show success message
-        applyBtn.textContent = '? ?„ l?u!';
+        applyBtn.textContent = '? ?√£ l?u!';
         applyBtn.style.background = '#28a745';
         
         setTimeout(() => {
-            applyBtn.textContent = '¡p d?ng';
+            applyBtn.textContent = '√Åp d?ng';
             applyBtn.style.background = '';
         }, 2000);
     });

@@ -1,4 +1,4 @@
-# Projects Images Directory
+Ôªø# Projects Images Directory
 
 This directory contains images for the projects showcase page.
 
@@ -11,15 +11,15 @@ This directory contains images for the projects showcase page.
 
 ## Current Projects
 
-1. **project-1.jpg** - D? ·n giao thÙng n?i b?
-2. **project-2.jpg** - CÙng trÏnh th?y l?i
+1. **project-1.jpg** - D? √°n giao th√¥ng n?i b?
+2. **project-2.jpg** - C√¥ng tr√¨nh th?y l?i
 3. **project-3.jpg** - H? t?ng k? thu?t
-4. **project-4.jpg** - X‚y d?ng d‚n d?ng
+4. **project-4.jpg** - X√¢y d?ng d√¢n d?ng
 5. **project-5.jpg** - BIM Modeling
-6. **project-6.jpg** - Gi·m s·t thi cÙng
-7. **project-7.jpg** - Ki?m ??nh cÙng trÏnh
+6. **project-6.jpg** - Gi√°m s√°t thi c√¥ng
+7. **project-7.jpg** - Ki?m ??nh c√¥ng tr√¨nh
 8. **project-8.jpg** - C?u ???ng
-9. **project-9.jpg** - H? t?ng ?Ù th?
+9. **project-9.jpg** - H? t?ng ?√¥ th?
 
 ## Placeholder
 
@@ -28,10 +28,10 @@ The page includes SVG placeholders that will display if actual images are not fo
 ## Categories
 
 Images are organized by service type:
-- Giao thÙng (Transportation)
+- Giao th√¥ng (Transportation)
 - H? t?ng k? thu?t (Infrastructure)
-- CÙng trÏnh th?y (Hydraulic works)
-- X‚y d?ng d‚n d?ng (Civil construction)
+- C√¥ng tr√¨nh th?y (Hydraulic works)
+- X√¢y d?ng d√¢n d?ng (Civil construction)
 - BIM (Building Information Modeling)
-- Gi·m s·t (Supervision)
+- Gi√°m s√°t (Supervision)
 - Ki?m ??nh (Inspection/Testing)

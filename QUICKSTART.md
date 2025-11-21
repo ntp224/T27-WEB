@@ -1,29 +1,29 @@
-# ?? T27 Website - GitHub Pages Deployment Guide
+ï»¿# ?? T27 Website - GitHub Pages Deployment Guide
 
-## ? Files ?ã t?o
+## ? Files ?Ã£ t?o
 
 ### 1. GitHub Actions Workflow
 - **File**: `.github/workflows/deploy.yml`
-- **M?c ?ích**: T? ??ng deploy lên GitHub Pages khi push code
+- **M?c ?Ã­ch**: T? ??ng deploy lÃªn GitHub Pages khi push code
 
 ### 2. .nojekyll
 - **File**: `wwwroot/.nojekyll`
-- **M?c ?ích**: Cho phép GitHub Pages x? lý ?úng các file CSS/JS
+- **M?c ?Ã­ch**: Cho phÃ©p GitHub Pages x? lÃ½ ?Ãºng cÃ¡c file CSS/JS
 
 ### 3. Documentation
-- **README.md**: Tài li?u d? án chính
+- **README.md**: TÃ i li?u d? Ã¡n chÃ­nh
 - **DEPLOY.md**: H??ng d?n deploy chi ti?t
-- **QUICKSTART.md**: File này - H??ng d?n nhanh
+- **QUICKSTART.md**: File nÃ y - H??ng d?n nhanh
 
 ### 4. Scripts
 - **deploy.ps1**: PowerShell script ?? t? ??ng deploy
 
 ### 5. Git Configuration
-- **.gitignore**: Lo?i tr? các file không c?n thi?t
+- **.gitignore**: Lo?i tr? cÃ¡c file khÃ´ng c?n thi?t
 
-## ?? Cách Deploy (3 cách)
+## ?? CÃ¡ch Deploy (3 cÃ¡ch)
 
-### Cách 1: S? d?ng PowerShell Script (??n gi?n nh?t) ?
+### CÃ¡ch 1: S? d?ng PowerShell Script (??n gi?n nh?t) ?
 
 ```powershell
 # Ch?y trong PowerShell
@@ -34,10 +34,10 @@ Script s? t? ??ng:
 1. ? Ki?m tra Git
 2. ? Add files
 3. ? Commit changes
-4. ? Push lên GitHub
-5. ? M? trình duy?t ?? xem ti?n trình
+4. ? Push lÃªn GitHub
+5. ? M? trÃ¬nh duy?t ?? xem ti?n trÃ¬nh
 
-### Cách 2: S? d?ng Git Commands
+### CÃ¡ch 2: S? d?ng Git Commands
 
 ```bash
 # 1. Add t?t c? files
@@ -46,11 +46,11 @@ git add .
 # 2. Commit v?i message
 git commit -m "Deploy website to GitHub Pages"
 
-# 3. Push lên GitHub
+# 3. Push lÃªn GitHub
 git push origin main
 ```
 
-### Cách 3: S? d?ng Visual Studio
+### CÃ¡ch 3: S? d?ng Visual Studio
 
 1. M? **Team Explorer**
 2. Ch?n **Changes**
@@ -60,35 +60,35 @@ git push origin main
 
 ## ?? URLs quan tr?ng
 
-| M?c ?ích | URL |
+| M?c ?Ã­ch | URL |
 |----------|-----|
 | **Website** | https://ntp224.github.io/T27-WEB/ |
 | **Repository** | https://github.com/ntp224/T27-WEB |
 | **Actions** | https://github.com/ntp224/T27-WEB/actions |
 | **Settings** | https://github.com/ntp224/T27-WEB/settings/pages |
 
-## ?? C?u hình GitHub Pages
+## ?? C?u hÃ¬nh GitHub Pages
 
 ### B??c 1: Enable GitHub Pages
-1. Vào: https://github.com/ntp224/T27-WEB/settings/pages
+1. VÃ o: https://github.com/ntp224/T27-WEB/settings/pages
 2. **Source**: Ch?n "GitHub Actions"
 3. Save
 
 ### B??c 2: Push Code
-S? d?ng m?t trong 3 cách ? trên ?? push code
+S? d?ng m?t trong 3 cÃ¡ch ? trÃªn ?? push code
 
 ### B??c 3: ??i Deploy
-1. Vào: https://github.com/ntp224/T27-WEB/actions
+1. VÃ o: https://github.com/ntp224/T27-WEB/actions
 2. Xem workflow "Deploy to GitHub Pages"
-3. ??i ~1-2 phút cho ??n khi có ? màu xanh
+3. ??i ~1-2 phÃºt cho ??n khi cÃ³ ? mÃ u xanh
 
 ### B??c 4: Truy c?p Website
 M?: https://ntp224.github.io/T27-WEB/
 
-## ?? Quy trình c?p nh?t
+## ?? Quy trÃ¬nh c?p nh?t
 
 ```
-S?a code ? Save ? Run deploy.ps1 ? ??i 1-2 phút ? Website c?p nh?t
+S?a code ? Save ? Run deploy.ps1 ? ??i 1-2 phÃºt ? Website c?p nh?t
 ```
 
 ## ?? Workflow Diagram
@@ -123,40 +123,40 @@ S?a code ? Save ? Run deploy.ps1 ? ??i 1-2 phút ? Website c?p nh?t
 
 ## ?? Checklist Deploy l?n ??u
 
-- [ ] Ki?m tra Git ?ã cài ??t
-- [ ] Ki?m tra ?ã push lên GitHub
-- [ ] Vào Settings ? Pages
+- [ ] Ki?m tra Git ?Ã£ cÃ i ??t
+- [ ] Ki?m tra ?Ã£ push lÃªn GitHub
+- [ ] VÃ o Settings ? Pages
 - [ ] Ch?n Source: GitHub Actions
 - [ ] Ch?y `.\deploy.ps1` ho?c git push
-- [ ] Vào Actions xem ti?n trình
-- [ ] Truy c?p website sau 1-2 phút
-- [ ] Ki?m tra các trang ho?t ??ng
-- [ ] Ki?m tra responsive trên mobile
+- [ ] VÃ o Actions xem ti?n trÃ¬nh
+- [ ] Truy c?p website sau 1-2 phÃºt
+- [ ] Ki?m tra cÃ¡c trang ho?t ??ng
+- [ ] Ki?m tra responsive trÃªn mobile
 
 ## ?? Troubleshooting
 
 ### V?n ?? 1: 404 Not Found
-**Gi?i pháp:**
-1. Ki?m tra Settings ? Pages ? Source ph?i là "GitHub Actions"
-2. Ki?m tra workflow ?ã ch?y thành công
-3. ??i 5-10 phút r?i th? l?i
+**Gi?i phÃ¡p:**
+1. Ki?m tra Settings ? Pages ? Source ph?i lÃ  "GitHub Actions"
+2. Ki?m tra workflow ?Ã£ ch?y thÃ nh cÃ´ng
+3. ??i 5-10 phÃºt r?i th? l?i
 
-### V?n ?? 2: CSS/JS không load
-**Gi?i pháp:**
-1. Ki?m tra file `.nojekyll` có trong wwwroot
+### V?n ?? 2: CSS/JS khÃ´ng load
+**Gi?i phÃ¡p:**
+1. Ki?m tra file `.nojekyll` cÃ³ trong wwwroot
 2. Clear browser cache (Ctrl + F5)
 3. Ki?m tra ???ng d?n trong HTML files
 
-### V?n ?? 3: Images không hi?n th?
-**Gi?i pháp:**
-1. Ki?m tra file ?nh có trong `wwwroot/images/`
+### V?n ?? 3: Images khÃ´ng hi?n th?
+**Gi?i phÃ¡p:**
+1. Ki?m tra file ?nh cÃ³ trong `wwwroot/images/`
 2. Ki?m tra ???ng d?n ?nh trong HTML
-3. Ki?m tra tên file (case-sensitive)
+3. Ki?m tra tÃªn file (case-sensitive)
 
 ### V?n ?? 4: Git push failed
-**Gi?i pháp:**
+**Gi?i phÃ¡p:**
 ```bash
-# Set remote URL n?u ch?a có
+# Set remote URL n?u ch?a cÃ³
 git remote set-url origin https://github.com/ntp224/T27-WEB.git
 
 # Pull tr??c khi push
@@ -171,18 +171,18 @@ git push origin main
 ### Desktop
 - [ ] Trang ch? (index.html)
 - [ ] Gi?i thi?u (gioi-thieu.html)
-- [ ] D? án (du-an.html)
-- [ ] Chi ti?t d? án (project-ngoc-hoi.html)
-- [ ] ??i ng? chuyên gia
-- [ ] Công ngh? s?
+- [ ] D? Ã¡n (du-an.html)
+- [ ] Chi ti?t d? Ã¡n (project-ngoc-hoi.html)
+- [ ] ??i ng? chuyÃªn gia
+- [ ] CÃ´ng ngh? s?
 - [ ] Tin t?c
-- [ ] Chính sách
-- [ ] Liên h?
+- [ ] ChÃ­nh sÃ¡ch
+- [ ] LiÃªn h?
 
 ### Mobile
 - [ ] Responsive design
 - [ ] Menu hamburger
-- [ ] Images load ?úng
+- [ ] Images load ?Ãºng
 - [ ] Forms ho?t ??ng
 
 ### Performance
@@ -192,30 +192,30 @@ git push origin main
 
 ## ?? Tips & Best Practices
 
-1. **Commit th??ng xuyên**: Commit sau m?i tính n?ng nh?
-2. **Message rõ ràng**: Vi?t commit message có ý ngh?a
-3. **Test local**: Test k? trên localhost tr??c khi push
+1. **Commit th??ng xuyÃªn**: Commit sau m?i tÃ­nh n?ng nh?
+2. **Message rÃµ rÃ ng**: Vi?t commit message cÃ³ Ã½ ngh?a
+3. **Test local**: Test k? trÃªn localhost tr??c khi push
 4. **Backup**: Gi? backup code ? local
-5. **Responsive**: Luôn test trên mobile
+5. **Responsive**: LuÃ´n test trÃªn mobile
 6. **Performance**: Optimize images tr??c khi upload
 
 ## ?? Support
 
-**Công Ty C? Ph?n T? V?n T27**
+**CÃ´ng Ty C? Ph?n T? V?n T27**
 - ?? Hotline: 058.2210226 | 0913.431.515
 - ?? Email: t27_vn@yahoo.com
-- ?? ??a ch?: Nha Trang, Khánh Hòa | Quy Nh?n, Bình ??nh
+- ?? ??a ch?: Nha Trang, KhÃ¡nh HÃ²a | Quy Nh?n, BÃ¬nh ??nh
 
 ## ?? K?t lu?n
 
-Bây gi? b?n ?ã có:
-- ? Website hoàn ch?nh
+BÃ¢y gi? b?n ?Ã£ cÃ³:
+- ? Website hoÃ n ch?nh
 - ? GitHub Pages setup
 - ? Auto deployment
 - ? Documentation ??y ??
 - ? Scripts ti?n l?i
 
-**Chúc m?ng! Website c?a b?n ?ã s?n sàng ?i vào ho?t ??ng! ??**
+**ChÃºc m?ng! Website c?a b?n ?Ã£ s?n sÃ ng ?i vÃ o ho?t ??ng! ??**
 
 ---
 

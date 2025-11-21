@@ -1,8 +1,8 @@
-# ?? H??ng d?n Deploy T27 Website lên GitHub Pages
+ï»¿# ?? H??ng d?n Deploy T27 Website lÃªn GitHub Pages
 
 ## ? Ki?m tra Git
 
-Tr??c tiên, ki?m tra Git ?ã ???c cài ??t ch?a:
+Tr??c tiÃªn, ki?m tra Git ?Ã£ ???c cÃ i ??t ch?a:
 
 1. M? **Command Prompt** ho?c **PowerShell**
 2. Ch?y l?nh:
@@ -10,27 +10,27 @@ Tr??c tiên, ki?m tra Git ?ã ???c cài ??t ch?a:
 git --version
 ```
 
-N?u ch?a có Git, t?i v? t?i: https://git-scm.com/download/win
+N?u ch?a cÃ³ Git, t?i v? t?i: https://git-scm.com/download/win
 
-## ?? Các b??c Deploy
+## ?? CÃ¡c b??c Deploy
 
 ### B??c 1: M? Terminal trong Visual Studio
 - Ch?n menu **View** > **Terminal** (ho?c Ctrl + `)
 
-### B??c 2: Ch?y các l?nh sau l?n l??t:
+### B??c 2: Ch?y cÃ¡c l?nh sau l?n l??t:
 
 ```bash
-# Thêm t?t c? files
+# ThÃªm t?t c? files
 git add .
 
 # Commit changes
 git commit -m "Deploy website to GitHub Pages"
 
-# Push lên GitHub
+# Push lÃªn GitHub
 git push origin main
 ```
 
-## ?? C?u hình GitHub Pages (ch? c?n làm 1 l?n)
+## ?? C?u hÃ¬nh GitHub Pages (ch? c?n lÃ m 1 l?n)
 
 1. Truy c?p: https://github.com/ntp224/T27-WEB/settings/pages
 2. Trong ph?n **Source**, ch?n: **GitHub Actions**
@@ -38,28 +38,28 @@ git push origin main
 
 ## ? Xem k?t qu?
 
-Sau khi push code lên:
+Sau khi push code lÃªn:
 
-1. **Xem quá trình build**: https://github.com/ntp224/T27-WEB/actions
+1. **Xem quÃ¡ trÃ¬nh build**: https://github.com/ntp224/T27-WEB/actions
 2. **Website c?a b?n**: https://ntp224.github.io/T27-WEB/
 
-?? Th??ng m?t 1-2 phút ?? build và deploy xong.
+?? Th??ng m?t 1-2 phÃºt ?? build vÃ  deploy xong.
 
-## ?? C?p nh?t Website sau này
+## ?? C?p nh?t Website sau nÃ y
 
-M?i khi có thay ??i, ch? c?n ch?y 3 l?nh:
+M?i khi cÃ³ thay ??i, ch? c?n ch?y 3 l?nh:
 
 ```bash
 git add .
-git commit -m "Mô t? thay ??i c?a b?n"
+git commit -m "MÃ´ t? thay ??i c?a b?n"
 git push origin main
 ```
 
-GitHub Actions s? t? ??ng build và deploy!
+GitHub Actions s? t? ??ng build vÃ  deploy!
 
 ## ? N?u g?p l?i
 
-### L?i: Git ch?a ???c c?u hình
+### L?i: Git ch?a ???c c?u hÃ¬nh
 
 ```bash
 git config --global user.name "Your Name"
@@ -68,15 +68,15 @@ git config --global user.email "your.email@example.com"
 
 ### L?i: Permission denied
 
-??m b?o b?n ?ã ??ng nh?p GitHub trong Visual Studio ho?c cài ??t SSH key.
+??m b?o b?n ?Ã£ ??ng nh?p GitHub trong Visual Studio ho?c cÃ i ??t SSH key.
 
 ### L?i: 404 khi truy c?p website
 
-1. Ki?m tra GitHub Pages settings ?ã b?t ch?a
-2. ??m b?o Source là "GitHub Actions"
-3. Ki?m tra workflow ?ã ch?y thành công
+1. Ki?m tra GitHub Pages settings ?Ã£ b?t ch?a
+2. ??m b?o Source lÃ  "GitHub Actions"
+3. Ki?m tra workflow ?Ã£ ch?y thÃ nh cÃ´ng
 
-## ?? Liên h? h? tr?
+## ?? LiÃªn h? h? tr?
 
 - Email: t27_vn@yahoo.com
 - Phone: 058.2210226 | 0913.431.515

@@ -1,26 +1,26 @@
-# T27 - Công Ty C? Ph?n T? V?n
+ï»¿# T27 - CÃ´ng Ty C? Ph?n T? V?n
 
 ![T27 Logo](wwwroot/images/logo-t27.png)
 
-**Cái tâm m?i công trình**
+**CÃ¡i tÃ¢m m?i cÃ´ng trÃ¬nh**
 
 ## ?? Gi?i thi?u
 
-Website chính th?c c?a Công ty C? ph?n T? v?n T27 - ??n v? chuyên nghi?p trong l?nh v?c:
-- ??? T? v?n thi?t k? công trình
-- ?? Kh?o sát ??a hình, ??a ch?t
-- ?? Giám sát thi công
-- ?? Qu?n lý d? án
-- ?? T? v?n BIM & Công ngh? s?
+Website chÃ­nh th?c c?a CÃ´ng ty C? ph?n T? v?n T27 - ??n v? chuyÃªn nghi?p trong l?nh v?c:
+- ??? T? v?n thi?t k? cÃ´ng trÃ¬nh
+- ?? Kh?o sÃ¡t ??a hÃ¬nh, ??a ch?t
+- ?? GiÃ¡m sÃ¡t thi cÃ´ng
+- ?? Qu?n lÃ½ d? Ã¡n
+- ?? T? v?n BIM & CÃ´ng ngh? s?
 
-## ?? Công ngh? s? d?ng
+## ?? CÃ´ng ngh? s? d?ng
 
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
 - **Framework**: .NET 8
 - **Deployment**: GitHub Pages
 - **Version Control**: Git
 
-## ?? C?u trúc d? án
+## ?? C?u trÃºc d? Ã¡n
 
 ```
 T27-WEB2/
@@ -51,17 +51,17 @@ T27-WEB2/
 
 ## ?? Truy c?p Website
 
-Website ???c deploy t? ??ng lên GitHub Pages t?i:
+Website ???c deploy t? ??ng lÃªn GitHub Pages t?i:
 - **URL**: https://ntp224.github.io/T27-WEB/
 
-## ??? Phát tri?n Local
+## ??? PhÃ¡t tri?n Local
 
-### Yêu c?u
+### YÃªu c?u
 - .NET 8 SDK
 - Visual Studio 2022 ho?c VS Code
 - Git
 
-### Cài ??t và ch?y
+### CÃ i ??t vÃ  ch?y
 
 ```bash
 # Clone repository
@@ -77,84 +77,84 @@ dotnet run
 
 Truy c?p: `https://localhost:5001` ho?c `http://localhost:5000`
 
-## ?? Tính n?ng chính
+## ?? TÃ­nh n?ng chÃ­nh
 
 ### 1. Trang ch? (index.html)
-- Hero section v?i thông tin công ty
+- Hero section v?i thÃ´ng tin cÃ´ng ty
 - Gi?i thi?u d?ch v?
-- D? án n?i b?t
-- ??i ng? chuyên gia
+- D? Ã¡n n?i b?t
+- ??i ng? chuyÃªn gia
 
 ### 2. Gi?i thi?u (gioi-thieu.html)
-- S? ?? t? ch?c công ty
-- T?m nhìn & S? m?nh
-- L?ch s? phát tri?n
+- S? ?? t? ch?c cÃ´ng ty
+- T?m nhÃ¬n & S? m?nh
+- L?ch s? phÃ¡t tri?n
 - C? c?u t? ch?c
 
-### 3. D? án (du-an.html)
-- Danh sách d? án v?i b? l?c
-- Phân lo?i theo:
-  - Lo?i d? án
+### 3. D? Ã¡n (du-an.html)
+- Danh sÃ¡ch d? Ã¡n v?i b? l?c
+- PhÃ¢n lo?i theo:
+  - Lo?i d? Ã¡n
   - D?ch v?
   - ??a ?i?m
-- Tìm ki?m d? án
+- TÃ¬m ki?m d? Ã¡n
 
-### 4. Chi ti?t d? án (project-detail.html)
-- Thông tin t?ng quan
+### 4. Chi ti?t d? Ã¡n (project-detail.html)
+- ThÃ´ng tin t?ng quan
 - Tabs chi ti?t:
-  - M?c tiêu & L?i ích
+  - M?c tiÃªu & L?i Ã­ch
   - ?i?m n?i b?t
   - Ti?n ?? & K?t qu?
   - ??i ng? tham gia
   - Th?i gian thi?t k?
-- Gallery hình ?nh
+- Gallery hÃ¬nh ?nh
 - Video gi?i thi?u
 
-### 5. Các trang khác
-- ??i ng? chuyên gia
-- Công ngh? s?
+### 5. CÃ¡c trang khÃ¡c
+- ??i ng? chuyÃªn gia
+- CÃ´ng ngh? s?
 - Tin t?c
-- Chính sách
-- Liên h?
+- ChÃ­nh sÃ¡ch
+- LiÃªn h?
 
 ## ?? Thi?t k?
 
-- **Màu ch? ??o**: 
+- **MÃ u ch? ??o**: 
   - Primary Blue: `#0088cc`
   - Primary Orange: `#FF6B35`
 - **Typography**: System fonts (Arial, sans-serif)
 - **Responsive**: Mobile-first design
 - **Icons**: Unicode emojis
 
-## ?? Deploy lên GitHub Pages
+## ?? Deploy lÃªn GitHub Pages
 
-Website ???c deploy t? ??ng qua GitHub Actions khi có commit m?i vào branch `main`.
+Website ???c deploy t? ??ng qua GitHub Actions khi cÃ³ commit m?i vÃ o branch `main`.
 
-### C?u hình GitHub Pages:
-1. Vào repository Settings
+### C?u hÃ¬nh GitHub Pages:
+1. VÃ o repository Settings
 2. Ch?n Pages
 3. Source: GitHub Actions
 4. Branch: main
 5. Folder: wwwroot
 
-## ?? Liên h?
+## ?? LiÃªn h?
 
-**Công Ty C? Ph?n T? V?n T27**
+**CÃ´ng Ty C? Ph?n T? V?n T27**
 
 - ?? **Hotline**: 058.2210226 | 0913.431.515
 - ?? **Email**: t27_vn@yahoo.com
-- ?? **V?n phòng**:
-  - Nha Trang, Khánh Hòa
-  - Quy Nh?n, Bình ??nh
+- ?? **V?n phÃ²ng**:
+  - Nha Trang, KhÃ¡nh HÃ²a
+  - Quy Nh?n, BÃ¬nh ??nh
 
 ## ?? License
 
-© 2025 Công Ty C? Ph?n T? V?n T27. All rights reserved.
+Â© 2025 CÃ´ng Ty C? Ph?n T? V?n T27. All rights reserved.
 
-## ?? ?óng góp
+## ?? ?Ã³ng gÃ³p
 
-D? án n?i b? c?a công ty T27. M?i ?óng góp vui lòng liên h? qua email.
+D? Ã¡n n?i b? c?a cÃ´ng ty T27. M?i ?Ã³ng gÃ³p vui lÃ²ng liÃªn h? qua email.
 
 ---
 
-**Phát tri?n b?i**: ??i ng? IT - T27 Consulting JSC
+**PhÃ¡t tri?n b?i**: ??i ng? IT - T27 Consulting JSC

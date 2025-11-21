@@ -1,69 +1,69 @@
-# ?? H??NG D?N NHANH - Deploy T27 Website lÍn GitHub Pages
+Ôªø# ?? H??NG D?N NHANH - Deploy T27 Website l√™n GitHub Pages
 
-## ?? T”M T?T
+## ?? T√ìM T?T
 
-TÙi ?„ t?o ??y ?? c·c file c?n thi?t ?? deploy website T27 lÍn GitHub Pages. D??i ?‚y l‡ h??ng d?n t?ng b??c.
+T√¥i ?√£ t?o ??y ?? c√°c file c?n thi?t ?? deploy website T27 l√™n GitHub Pages. D??i ?√¢y l√† h??ng d?n t?ng b??c.
 
 ---
 
 ## ?? B??C 1: M? PowerShell/Terminal
 
-M? **PowerShell** ho?c **Git Bash** trong th? m?c d? ·n:
+M? **PowerShell** ho?c **Git Bash** trong th? m?c d? √°n:
 ```
 C:\Users\thang\source\repos\ntp224\T27-WEB2\
 ```
 
 ---
 
-## ?? B??C 2: Ch?y l?nh Git (ch?n 1 trong 2 c·ch)
+## ?? B??C 2: Ch?y l?nh Git (ch?n 1 trong 2 c√°ch)
 
-### C·ch A: T? ??ng (Khuy?n ngh?) ?
+### C√°ch A: T? ??ng (Khuy?n ngh?) ?
 ```powershell
 .\deploy.ps1
 ```
-Script s? t? ??ng l‡m t?t c?!
+Script s? t? ??ng l√†m t?t c?!
 
-### C·ch B: Th? cÙng
+### C√°ch B: Th? c√¥ng
 ```bash
-# 1. Ki?m tra tr?ng th·i
+# 1. Ki?m tra tr?ng th√°i
 git status
 
-# 2. ThÍm t?t c? files
+# 2. Th√™m t?t c? files
 git add .
 
 # 3. Commit
 git commit -m "Deploy T27 website to GitHub Pages"
 
-# 4. Push lÍn GitHub
+# 4. Push l√™n GitHub
 git push origin main
 ```
 
 ---
 
-## ?? B??C 3: C?u hÏnh GitHub Pages
+## ?? B??C 3: C?u h√¨nh GitHub Pages
 
-1. M? trÏnh duy?t v‡ v‡o: https://github.com/ntp224/T27-WEB/settings/pages
+1. M? tr√¨nh duy?t v√† v√†o: https://github.com/ntp224/T27-WEB/settings/pages
 
 2. Trong ph?n **"Build and deployment"**:
    - **Source**: Ch?n **"GitHub Actions"** (QUAN TR?NG!)
    
-3. Click **Save** (n?u cÛ)
+3. Click **Save** (n?u c√≥)
 
 ---
 
 ## ?? B??C 4: Ki?m tra Deploy
 
-1. V‡o: https://github.com/ntp224/T27-WEB/actions
+1. V√†o: https://github.com/ntp224/T27-WEB/actions
 
 2. B?n s? th?y workflow **"Deploy to GitHub Pages"** ?ang ch?y
 
-3. ??i workflow hi?n th? ? m‡u xanh (kho?ng 1-2 ph˙t)
+3. ??i workflow hi?n th? ? m√†u xanh (kho?ng 1-2 ph√∫t)
 
 ---
 
 ## ?? B??C 5: Truy c?p Website
 
-Sau khi deploy th‡nh cÙng, website s? cÛ t?i:
+Sau khi deploy th√†nh c√¥ng, website s? c√≥ t?i:
 
 ### ?? https://ntp224.github.io/T27-WEB/
 
@@ -71,22 +71,22 @@ Sau khi deploy th‡nh cÙng, website s? cÛ t?i:
 
 ## ?? CHECKLIST
 
-?·nh d?u ? khi ho‡n th‡nh:
+?√°nh d?u ? khi ho√†n th√†nh:
 
-- [ ] ?„ ch?y `git add .`
-- [ ] ?„ ch?y `git commit -m "..."`
-- [ ] ?„ ch?y `git push origin main`
-- [ ] V‡o Settings ? Pages
+- [ ] ?√£ ch?y `git add .`
+- [ ] ?√£ ch?y `git commit -m "..."`
+- [ ] ?√£ ch?y `git push origin main`
+- [ ] V√†o Settings ? Pages
 - [ ] Ch?n Source: **GitHub Actions**
-- [ ] V‡o Actions xem ti?n trÏnh
+- [ ] V√†o Actions xem ti?n tr√¨nh
 - [ ] Workflow hi?n th? ?
-- [ ] Truy c?p website th‡nh cÙng
-- [ ] Ki?m tra c·c trang ho?t ??ng
-- [ ] Ki?m tra trÍn mobile
+- [ ] Truy c?p website th√†nh c√¥ng
+- [ ] Ki?m tra c√°c trang ho?t ??ng
+- [ ] Ki?m tra tr√™n mobile
 
 ---
 
-## ?? C¡C FILE ?√ T?O
+## ?? C√ÅC FILE ?√É T?O
 
 ```
 T27-WEB2/
@@ -94,9 +94,9 @@ T27-WEB2/
 ?   ??? workflows/
 ?       ??? deploy.yml          ? GitHub Actions workflow
 ??? wwwroot/
-?   ??? .nojekyll               ? C?u hÏnh GitHub Pages
+?   ??? .nojekyll               ? C?u h√¨nh GitHub Pages
 ??? .gitignore                  ? Git ignore rules
-??? README.md                   ? T‡i li?u chÌnh
+??? README.md                   ? T√†i li?u ch√≠nh
 ??? DEPLOY.md                   ? H??ng d?n chi ti?t
 ??? QUICKSTART.md              ? H??ng d?n nhanh
 ??? deploy.ps1                  ? PowerShell script
@@ -116,7 +116,7 @@ git push origin main
 
 ## ?? LINKS QUAN TR?NG
 
-| M?c ?Ìch | URL |
+| M?c ?√≠ch | URL |
 |----------|-----|
 | **Website Live** | https://ntp224.github.io/T27-WEB/ |
 | **Repository** | https://github.com/ntp224/T27-WEB |
@@ -128,13 +128,13 @@ git push origin main
 ## ? TROUBLESHOOTING
 
 ### ? N?u g?p l?i "404 Not Found"
-1. ??i 5-10 ph˙t
+1. ??i 5-10 ph√∫t
 2. Ki?m tra Settings ? Pages ? Source = "GitHub Actions"
-3. Ki?m tra Actions workflow ?„ ch?y th‡nh cÙng
+3. Ki?m tra Actions workflow ?√£ ch?y th√†nh c√¥ng
 
-### ? N?u CSS/JS khÙng load
-1. Clear cache trÏnh duy?t (Ctrl + F5)
-2. Ki?m tra file `.nojekyll` cÛ trong wwwroot
+### ? N?u CSS/JS kh√¥ng load
+1. Clear cache tr√¨nh duy?t (Ctrl + F5)
+2. Ki?m tra file `.nojekyll` c√≥ trong wwwroot
 
 ### ? N?u git push failed
 ```bash
@@ -153,17 +153,17 @@ N?u c?n h? tr?:
 
 ---
 
-## ?? HO¿N T?T!
+## ?? HO√ÄN T?T!
 
-Sau khi l‡m theo c·c b??c trÍn, website T27 c?a b?n s?:
+Sau khi l√†m theo c√°c b??c tr√™n, website T27 c?a b?n s?:
 - ? Ho?t ??ng 24/7
 - ? HTTPS b?o m?t
 - ? T?c ?? nhanh
 - ? Responsive mobile
-- ? Auto deploy khi cÛ update
+- ? Auto deploy khi c√≥ update
 
-**Ch˙c m?ng! Website ?„ s?n s‡ng! ??**
+**Ch√∫c m?ng! Website ?√£ s?n s√†ng! ??**
 
 ---
 
-*T?o b?i: GitHub Copilot | Ng‡y: 14/01/2025*
+*T?o b?i: GitHub Copilot | Ng√†y: 14/01/2025*
