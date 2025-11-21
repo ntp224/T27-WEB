@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương Trình Cộng Đồng - T27</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .training-hero {
+            padding: 180px 60px 80px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .training-hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .training-hero .subtitle {
+            font-size: 1.5em;
+            color: var(--accent-gold);
+            margin-bottom: 30px;
+        }
+
+        .training-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+        }
+
+        .training-list-intro {
+            background: var(--gray-light);
+            padding: 50px;
+            border-radius: 10px;
+            margin-bottom: 60px;
+            text-align: center;
+            border-left: 5px solid var(--primary-orange);
+        }
+
+        .training-list-intro h2 {
+            font-size: 2.5em;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .training-list-intro p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .training-sessions {
+            display: grid;
+            gap: 30px;
+        }
+
+        .training-session-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .training-session-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .session-header {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .session-number {
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--accent-gold);
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .session-header-content h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .session-header-content .session-date {
+            font-size: 1.1em;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .session-body {
+            padding: 40px;
+        }
+
+        .session-description {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .session-preview {
+            background: var(--gray-light);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .session-preview h4 {
+            font-size: 1.3em;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .preview-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .preview-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-list li:last-child {
+            border-bottom: none;
+        }
+
+        .preview-icon {
+            color: var(--primary-orange);
+            font-size: 1.2em;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: var(--primary-orange);
+            color: var(--white);
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .training-session-card:hover .read-more-btn {
+            background: var(--primary-blue);
+            transform: translateX(5px);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--primary-orange);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+
+        .back-button:hover {
+            background: var(--primary-blue);
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .session-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .training-hero h1 {
+                font-size: 2em;
+            }
+
+            .training-content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="images/logo-t27.png" alt="T27 Logo" class="logo-image" onerror="this.src='images/logo-t27.svg'">
+                <div class="logo-tagline">Cải tiến mọi công trình</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Trang chủ</a></li>
+                <li><a href="index.html#about">Giới thiệu</a></li>
+                <li><a href="index.html#projects">Dự án</a></li>
+                <li><a href="doi-ngu-chuyen-gia.html">Đội ngũ chuyên gia</a></li>
+                <li><a href="cong-nghe-so.html">Công nghệ số</a></li>
+                <li><a href="index.html#events">Sự kiện</a></li>
+                <li><a href="index.html#recruitment">Tuyển dụng</a></li>
+                <li><a href="index.html#contact">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Bar -->
+    <div class="contact-bar">
+        <div class="contact-bar-content">
+            <div class="contact-item">
+                <strong>📞 Hotline:</strong> 058.2210226 | 0913.431.515
+            </div>
+            <div class="contact-item">
+                <strong>✉ Email:</strong> t27_vn@yahoo.com
+            </div>
+            <div class="contact-item">
+                <strong>🏢 Địa chỉ:</strong> Nha Trang, Khánh Hòa | Quy Nhơn, Bình Định
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="training-hero">
+        <h1>🤝 Chương Trình Cộng Đồng</h1>
+        <p class="subtitle">Kết Nối Yêu Thương - Chia Sẻ Hạnh Phúc - Công Ty Cổ Phần Tư Vấn T27</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="training-content">
+        
+        <!-- Introduction -->
+        <div class="training-list-intro">
+            <h2>📋 Về Chương Trình Cộng Đồng</h2>
+            <p>
+                Công ty Cổ phần Tư vấn T27 không chỉ chú trọng phát triển chuyên môn mà còn luôn hướng đến 
+                trách nhiệm xã hội, tổ chức các hoạt động cộng đồng ý nghĩa nhằm gắn kết nội bộ và lan tỏa 
+                giá trị nhân văn đến cộng đồng.
+            </p>
+            <p style="margin-top: 15px;">
+                <strong style="color: var(--primary-orange);">Tinh thần đoàn kết – chia sẻ – trách nhiệm</strong> 
+                là nền tảng giúp T27 xây dựng một môi trường làm việc tràn đầy yêu thương và gắn bó.
+            </p>
+        </div>
+
+        <!-- Community Programs List -->
+        <div class="training-sessions">
+            
+           <!-- Program 1: Vui Hội Trăng Rằm -->
+            <a href="chuong-trinh-cong-dong/vui-hoi-trang-ram.html" class="training-session-card">
+                <div class="session-header">
+                    <div class="session-number">01</div>
+                    <div class="session-header-content">
+                        <h3>Vui Hội Trăng Rằm – Trung Thu 2025 cùng T27</h3>
+                        <div class="session-date">
+                            <span>📅</span>
+                            <span>Tháng 9/2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="session-body">
+                    <div class="session-description">
+                        Chương trình Trung Thu ấm áp và ý nghĩa, mang đến niềm vui cho các em nhỏ con em CBNV 
+                        và tạo không khí đoàn viên, gắn kết trong gia đình T27.
+                    </div>
+
+                    <div class="session-preview">
+                        <h4>🎯 Hoạt động Chính</h4>
+                        <ul class="preview-list">
+                            <li>
+                                <span class="preview-icon">🌙</span>
+                                Tổ chức tiệc Trung Thu cho con em CBNV
+                            </li>
+                            <li>
+                                <span class="preview-icon">🎭</span>
+                                Phá cỗ truyền thống và vui chơi trò chơi dân gian
+                            </li>
+                            <li>
+                                <span class="preview-icon">🎁</span>
+                                Tặng quà và lồng đèn cho các em nhỏ
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="read-more-btn">
+                        Xem chi tiết →
+                    </div>
+                </div>
+            </a>
+
+            <!-- Program 2: Ngày Quốc tế Phụ nữ 8/3 -->
+            <a href="chuong-trinh-cong-dong/ngay-quoc-te-phu-nu-83.html" class="training-session-card">
+                <div class="session-header">
+                    <div class="session-number">02</div>
+                    <div class="session-header-content">
+                        <h3>Kỷ niệm Ngày Quốc tế Phụ nữ 8/3 năm 2025</h3>
+                        <div class="session-date">
+                            <span>📅</span>
+                            <span>08/03/2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="session-body">
+                    <div class="session-description">
+                        Ngày 8/3 tại T27 là dịp để ghi nhận, tri ân và tôn vinh những đóng góp to lớn của 
+                        các chị em phụ nữ trong công ty, đồng thời tạo không khí vui tươi, ấm áp.
+                    </div>
+
+                    <div class="session-preview">
+                        <h4>🎯 Hoạt động Chính</h4>
+                        <ul class="preview-list">
+                            <li>
+                                <span class="preview-icon">🌹</span>
+                                Tổ chức tiệc tri ân chị em phụ nữ
+                            </li>
+                            <li>
+                                <span class="preview-icon">💐</span>
+                                Tặng hoa và quà tặng ý nghĩa
+                            </li>
+                            <li>
+                                <span class="preview-icon">🎤</span>
+                                Hoạt động giao lưu và văn nghệ
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="read-more-btn">
+                        Xem chi tiết →
+                    </div>
+                </div>
+            </a>
+
+            <!-- Program 3: Giải bóng đá KDPM -->
+            <a href="chuong-trinh-cong-dong/giai-bong-da-kdpm.html" class="training-session-card">
+                <div class="session-header">
+                    <div class="session-number">03</div>
+                    <div class="session-header-content">
+                        <h3>Giải bóng đá KDPM mở rộng năm 2025</h3>
+                        <div class="session-date">
+                            <span>📅</span>
+                            <span>Năm 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="session-body">
+                    <div class="session-description">
+                        Giải bóng đá KDPM là sân chơi thể thao ý nghĩa, tạo cơ hội giao lưu, rèn luyện sức khỏe 
+                        và phát huy tinh thần đoàn kết, fair-play giữa các đơn vị trong ngành xây dựng.
+                    </div>
+
+                    <div class="session-preview">
+                        <h4>🎯 Hoạt động Chính</h4>
+                        <ul class="preview-list">
+                            <li>
+                                <span class="preview-icon">⚽</span>
+                                Thi đấu bóng đá giao hữu giữa các đơn vị
+                            </li>
+                            <li>
+                                <span class="preview-icon">💪</span>
+                                Tăng cường tinh thần thể thao và sức khỏe CBNV
+                            </li>
+                            <li>
+                                <span class="preview-icon">🤝</span>
+                                Gắn kết và mở rộng mối quan hệ đối tác
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="read-more-btn">
+                        Xem chi tiết →
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Back Button -->
+        <div style="text-align: center;">
+            <a href="index.html#events" class="back-button">
+                ← Quay lại trang chủ
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="images/logo-t27.png" alt="T27 Logo" class="footer-logo-image" onerror="this.src='images/logo-t27.svg'">
+        <p class="footer-tagline" style="color: var(--primary-orange) !important;">Cải tiến mọi công trình</p>
+        <p>&copy; 2025 Công Ty Cổ Phần Tư Vấn T27. All rights reserved.</p>
+        <p>Tư vấn thiết kế | Khảo sát - Địa hình địa chất | Giám sát thi công | Quản lý dự án</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

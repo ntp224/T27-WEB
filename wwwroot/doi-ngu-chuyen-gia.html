@@ -1,0 +1,786 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đội Ngũ Chuyên Gia - T27 Công Ty Cổ Phần Tư Vấn</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .experts-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .experts-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .experts-header h1 {
+            font-size: 2.8em;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .experts-header .subtitle {
+            font-size: 1.3em;
+            color: var(--primary-orange);
+            font-style: italic;
+        }
+
+        /* Enhanced Expert Card Styles */
+        .expertise-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .expertise-section h2 {
+            color: var(--primary-blue);
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--primary-orange);
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            font-size: 2.5em;
+            color: var(--primary-orange);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .expert-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .expert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            border-left-color: var(--primary-orange);
+        }
+
+        .expert-header {
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .expert-card h4 {
+            color: var(--primary-blue);
+            font-size: 1.4em;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .expert-title {
+            color: var(--primary-orange);
+            font-weight: 600;
+            font-size: 1.05em;
+            margin-bottom: 5px;
+        }
+
+        .expert-degree {
+            color: #666;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+
+        .expert-info-grid {
+            display: grid;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+        }
+
+        .info-icon {
+            color: var(--primary-orange);
+            font-size: 1.1em;
+            min-width: 20px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #333;
+            min-width: 140px;
+        }
+
+        .info-value {
+            color: #666;
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .expert-specialties {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .specialties-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .specialty-tag {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin: 4px;
+            font-weight: 500;
+        }
+
+        .expert-projects {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #d0d0d0;
+        }
+
+        .projects-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            padding: 6px 0 6px 20px;
+            color: #555;
+            font-size: 0.9em;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .project-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-orange);
+            font-weight: bold;
+        }
+
+        .expert-achievements {
+            margin-top: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            border-left: 4px solid #ffa726;
+            border-radius: 8px;
+        }
+
+        .achievements-label {
+            font-weight: 600;
+            color: #f57c00;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .achievement-item {
+            color: #666;
+            font-size: 0.9em;
+            padding: 4px 0 4px 20px;
+            position: relative;
+        }
+
+        .achievement-item::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 50px;
+            margin: 40px 0;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .stats-banner h3 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-box {
+            padding: 20px;
+        }
+
+        .stat-box .number {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--primary-orange);
+            margin-bottom: 10px;
+        }
+
+        .stat-box .label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Tree Diagram */
+        .tree-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            margin: 40px 0;
+            overflow-x: auto;
+        }
+
+        .tree {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+        }
+
+        .tree-root {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            font-size: 1.8em;
+            font-weight: bold;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .tree-branches {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        .tree-branches::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-orange);
+        }
+
+        .tree-branch {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .tree-branch::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-orange);
+        }
+
+        .tree-leaf {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-orange);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 350px;
+        }
+
+        .tree-leaf:hover {
+            transform: translateX(10px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+            border-left-color: var(--primary-blue);
+        }
+
+        .tree-leaf h3 {
+            color: var(--primary-blue);
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .tree-leaf p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .tree {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .tree-branches::before,
+            .tree-branch::before {
+                display: none;
+            }
+
+            .tree-leaf {
+                min-width: auto;
+                width: 100%;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .experts-header h1 {
+                font-size: 2em;
+            }
+
+            .expert-card {
+                padding: 20px;
+            }
+
+            .info-label {
+                min-width: 100px;
+                font-size: 0.9em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="images/logo-t27.png" alt="T27 Logo" class="logo-image" onerror="this.src='images/logo-t27.svg'">
+                <div class="logo-tagline">Cái tâm mọi công trình</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                <li><a href="du-an.html">Dự án</a></li>
+                <li><a href="doi-ngu-chuyen-gia.html" style="color: var(--primary-orange);">Đội ngũ chuyên gia</a></li>
+                <li><a href="cong-nghe-so.html">Công nghệ số</a></li>
+                <li><a href="su-kien.html">Sự kiện</a></li>
+                <li><a href="tin-tuc.html">Tin tức</a></li>
+                <li><a href="chinh-sach.html">Chính sách</a></li>
+                <li><a href="lien-he.html">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Bar -->
+    <div class="contact-bar">
+        <div class="contact-bar-content">
+            <div class="contact-item">
+                <strong>📞 Hotline:</strong> 058.2210226 | 0913.431.515
+            </div>
+            <div class="contact-item">
+                <strong>✉ Email:</strong> t27_vn@yahoo.com
+            </div>
+            <div class="contact-item">
+                <strong>📍 Địa chỉ:</strong> Nha Trang, Khánh Hòa | Quy Nhơn, Bình Định
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="experts-container">
+        <!-- Header -->
+        <div class="experts-header">
+            <h1>ĐỘI NGŨ CHUYÊN GIA</h1>
+            <p class="subtitle">Đội ngũ chuyên gia giàu kinh nghiệm và tận tâm</p>
+        </div>
+
+        <!-- Stats Banner -->
+        <div class="stats-banner">
+            <h3>📊 NĂNG LỰC CHUYÊN MÔN</h3>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="number">50+</div>
+                    <div class="label">Chuyên gia</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">5</div>
+                    <div class="label">Lĩnh vực chính</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">15+</div>
+                    <div class="label">Năm kinh nghiệm TB</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">100%</div>
+                    <div class="label">Chứng chỉ hành nghề</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tree Diagram -->
+        <div class="tree-container">
+            <div class="tree">
+                <div class="tree-root">
+                    Đội ngũ chuyên gia
+                </div>
+                <div class="tree-branches">
+                    <div class="tree-branch">
+                        <div class="tree-leaf">
+                            <h3>Chuyên gia Khảo sát Thiết kế</h3>
+                            <p>Thiết kế công trình giao thông, xây dựng, hạ tầng kỹ thuật</p>
+                        </div>
+                    </div>
+                    <div class="tree-branch">
+                        <div class="tree-leaf">
+                            <h3>Chuyên gia BIM & Công nghệ số</h3>
+                            <p>Mô hình hóa thông tin công trình và quản lý dự án số</p>
+                        </div>
+                    </div>
+                    <div class="tree-branch">
+                        <div class="tree-leaf">
+                            <h3>Chuyên gia Tư vấn Giám sát</h3>
+                            <p>Giám sát thi công và quản lý chất lượng công trình</p>
+                        </div>
+                    </div>
+                    <div class="tree-branch">
+                        <div class="tree-leaf">
+                            <h3>Chuyên gia Kiểm định</h3>
+                            <p>Kiểm định chất lượng và an toàn công trình</p>
+                        </div>
+                    </div>
+                    <div class="tree-branch">
+                        <div class="tree-leaf">
+                            <h3>Chuyên gia Lựa chọn Nhà thầu</h3>
+                            <p>Tư vấn đấu thầu và quản lý hợp đồng xây dựng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expertise Section: Khảo sát Thiết kế -->
+        <div class="expertise-section">
+            <h2>
+                <span class="section-icon">🔍</span>
+                Chuyên Gia Khảo Sát Thiết Kế
+            </h2>
+            <div class="expertise-grid">
+                <!-- Expert 1 -->
+                <div class="expert-card">
+                    <div class="expert-header">
+                        <h4>ThS. KTS. Nguyễn Thanh Tuấn</h4>
+                        <p class="expert-title">Trưởng Phòng Thiết Kế Cầu & Công trình Đặc biệt</p>
+                        <p class="expert-degree">Thạc sĩ Kỹ thuật Xây dựng Công trình Giao thông</p>
+                    </div>
+                    
+                    <div class="expert-info-grid">
+                        <div class="info-row">
+                            <span class="info-icon">📜</span>
+                            <span class="info-label">Chứng chỉ:</span>
+                            <span class="info-value">Chứng chỉ hành nghề Thiết kế Hạng I</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">⏱️</span>
+                            <span class="info-label">Kinh nghiệm:</span>
+                            <span class="info-value">18 năm trong lĩnh vực thiết kế cầu và công trình đặc biệt</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">🎯</span>
+                            <span class="info-label">Chuyên môn:</span>
+                            <span class="info-value">Thiết kế cầu dây văng, cầu treo, cầu vượt, hầm chui</span>
+                        </div>
+                    </div>
+
+                    <div class="expert-specialties">
+                        <div class="specialties-label">🔧 Kỹ năng chuyên môn:</div>
+                        <span class="specialty-tag">SAP2000</span>
+                        <span class="specialty-tag">MIDAS Civil</span>
+                        <span class="specialty-tag">AutoCAD</span>
+                        <span class="specialty-tag">Revit Structure</span>
+                        <span class="specialty-tag">BIM 360</span>
+                    </div>
+
+                    <div class="expert-projects">
+                        <div class="projects-label">📁 Dự án tiêu biểu:</div>
+                        <ul class="project-list">
+                            <li>Cầu Cổ Lũy (Khánh Hòa) - 420m</li>
+                            <li>Cầu Thị Nại (Bình Định) - 5.8km</li>
+                            <li>Cầu vượt nút giao Nguyễn Tất Thành (Nha Trang)</li>
+                            <li>Hầm chui Yersin (Nha Trang)</li>
+                        </ul>
+                    </div>
+
+                    <div class="expert-achievements">
+                        <div class="achievements-label">🏆 Thành tích nổi bật:</div>
+                        <div class="achievement-item">Giải thưởng Công trình chất lượng cao 2022</div>
+                        <div class="achievement-item">Bằng khen của UBND tỉnh Khánh Hòa</div>
+                    </div>
+                </div>
+
+                <!-- Expert 2 -->
+                <div class="expert-card">
+                    <div class="expert-header">
+                        <h4>KS. Trần Minh Hải</h4>
+                        <p class="expert-title">Trưởng Phòng Thiết Kế Đường & Hạ tầng Kỹ thuật</p>
+                        <p class="expert-degree">Kỹ sư Xây dựng Công trình Giao thông</p>
+                    </div>
+                    
+                    <div class="expert-info-grid">
+                        <div class="info-row">
+                            <span class="info-icon">📜</span>
+                            <span class="info-label">Chứng chỉ:</span>
+                            <span class="info-value">Chứng chỉ hành nghề Thiết kế Hạng I</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">⏱️</span>
+                            <span class="info-label">Kinh nghiệm:</span>
+                            <span class="info-value">15 năm thiết kế đường bộ và hạ tầng đô thị</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">🎯</span>
+                            <span class="info-label">Chuyên môn:</span>
+                            <span class="info-value">Thiết kế đường cao tốc, đường đô thị, hệ thống thoát nước</span>
+                        </div>
+                    </div>
+
+                    <div class="expert-specialties">
+                        <div class="specialties-label">🔧 Kỹ năng chuyên môn:</div>
+                        <span class="specialty-tag">Civil 3D</span>
+                        <span class="specialty-tag">AutoCAD</span>
+                        <span class="specialty-tag">12d Model</span>
+                        <span class="specialty-tag">GIS</span>
+                        <span class="specialty-tag">MX Road</span>
+                    </div>
+
+                    <div class="expert-projects">
+                        <div class="projects-label">📁 Dự án tiêu biểu:</div>
+                        <ul class="project-list">
+                            <li>Tuyến đường ven biển Nha Trang - Cam Ranh</li>
+                            <li>Khu đô thị Mỹ Gia (120ha)</li>
+                            <li>Đường Nguyễn Tất Thành nối dài</li>
+                            <li>Hệ thống thoát nước Tp. Quy Nhơn</li>
+                        </ul>
+                    </div>
+
+                    <div class="expert-achievements">
+                        <div class="achievements-label">🏆 Thành tích nổi bật:</div>
+                        <div class="achievement-item">Chứng nhận thiết kế đạt chuẩn quốc gia 2023</div>
+                        <div class="achievement-item">Giải nhất thiết kế sáng tạo năm 2021</div>
+                    </div>
+                </div>
+
+                <!-- Expert 3 -->
+                <div class="expert-card">
+                    <div class="expert-header">
+                        <h4>KS. Lê Thị Phương Anh</h4>
+                        <p class="expert-title">Phó Phòng Thiết Kế Kiến trúc & Công trình Dân dụng</p>
+                        <p class="expert-degree">Kỹ sư Kiến trúc - Quy hoạch Đô thị</p>
+                    </div>
+                    
+                    <div class="expert-info-grid">
+                        <div class="info-row">
+                            <span class="info-icon">📜</span>
+                            <span class="info-label">Chứng chỉ:</span>
+                            <span class="info-value">Chứng chỉ hành nghề Thiết kế Kiến trúc Hạng I</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">⏱️</span>
+                            <span class="info-label">Kinh nghiệm:</span>
+                            <span class="info-value">12 năm thiết kế kiến trúc và quy hoạch</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">🎯</span>
+                            <span class="info-label">Chuyên môn:</span>
+                            <span class="info-value">Thiết kế công trình công cộng, nhà cao tầng, khu đô thị</span>
+                        </div>
+                    </div>
+
+                    <div class="expert-specialties">
+                        <div class="specialties-label">🔧 Kỹ năng chuyên môn:</div>
+                        <span class="specialty-tag">Revit Architecture</span>
+                        <span class="specialty-tag">SketchUp Pro</span>
+                        <span class="specialty-tag">Lumion</span>
+                        <span class="specialty-tag">3ds Max</span>
+                        <span class="specialty-tag">V-Ray</span>
+                    </div>
+
+                    <div class="expert-projects">
+                        <div class="projects-label">📁 Dự án tiêu biểu:</div>
+                        <ul class="project-list">
+                            <li>Trung tâm Hành chính tỉnh Khánh Hòa</li>
+                            <li>Khu thương mại An Phú (Quy Nhơn)</li>
+                            <li>Nhà điều hành Cảng Hàng không Cam Ranh</li>
+                            <li>Quy hoạch Khu du lịch Bãi Dài</li>
+                        </ul>
+                    </div>
+
+                    <div class="expert-achievements">
+                        <div class="achievements-label">🏆 Thành tích nổi bật:</div>
+                        <div class="achievement-item">Giải Bạc Kiến trúc Sư Trẻ Việt Nam 2022</div>
+                        <div class="achievement-item">Top 10 thiết kế kiến trúc xanh 2023</div>
+                    </div>
+                </div>
+
+                <!-- Expert 4 -->
+                <div class="expert-card">
+                    <div class="expert-header">
+                        <h4>KS. Phạm Quốc Hưng</h4>
+                        <p class="expert-title">Chuyên viên Thiết kế Nền móng & Kết cấu</p>
+                        <p class="expert-degree">Kỹ sư Xây dựng Công trình Dân dụng & Công nghiệp</p>
+                    </div>
+                    
+                    <div class="expert-info-grid">
+                        <div class="info-row">
+                            <span class="info-icon">📜</span>
+                            <span class="info-label">Chứng chỉ:</span>
+                            <span class="info-value">Chứng chỉ hành nghề Thiết kế Kết cấu Hạng II</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">⏱️</span>
+                            <span class="info-label">Kinh nghiệm:</span>
+                            <span class="info-value">10 năm thiết kế kết cấu công trình</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">🎯</span>
+                            <span class="info-label">Chuyên môn:</span>
+                            <span class="info-value">Thiết kế nền móng, kết cấu bê tông cốt thép, kết cấu thép</span>
+                        </div>
+                    </div>
+
+                    <div class="expert-specialties">
+                        <div class="specialties-label">🔧 Kỹ năng chuyên môn:</div>
+                        <span class="specialty-tag">ETABS</span>
+                        <span class="specialty-tag">SAP2000</span>
+                        <span class="specialty-tag">SAFE</span>
+                        <span class="specialty-tag">Revit Structure</span>
+                        <span class="specialty-tag">Plaxis</span>
+                    </div>
+
+                    <div class="expert-projects">
+                        <div class="projects-label">📁 Dự án tiêu biểu:</div>
+                        <ul class="project-list">
+                            <li>Tòa nhà hỗn hợp 25 tầng Nha Trang Center</li>
+                            <li>Nhà máy nhiệt điện Vũng Áng</li>
+                            <li>Kho chứa Cảng Quy Nhơn</li>
+                            <li>Khách sạn Vinpearl Nha Trang</li>
+                        </ul>
+                    </div>
+
+                    <div class="expert-achievements">
+                        <div class="achievements-label">🏆 Thành tích nổi bật:</div>
+                        <div class="achievement-item">Chứng nhận công trình đạt chuẩn LEED Gold</div>
+                    </div>
+                </div>
+
+                <!-- Expert 5 -->
+                <div class="expert-card">
+                    <div class="expert-header">
+                        <h4>KS. Võ Thị Mai</h4>
+                        <p class="expert-title">Chuyên viên Khảo sát Địa hình - Địa chất</p>
+                        <p class="expert-degree">Kỹ sư Địa chất Công trình</p>
+                    </div>
+                    
+                    <div class="expert-info-grid">
+                        <div class="info-row">
+                            <span class="info-icon">📜</span>
+                            <span class="info-label">Chứng chỉ:</span>
+                            <span class="info-value">Chứng chỉ Khảo sát Địa chất Công trình Hạng I</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">⏱️</span>
+                            <span class="info-label">Kinh nghiệm:</span>
+                            <span class="info-value">14 năm khảo sát địa hình, địa chất</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-icon">🎯</span>
+                            <span class="info-label">Chuyên môn:</span>
+                            <span class="info-value">Khảo sát địa chất, đo đạc địa hình, UAV mapping</span>
+                        </div>
+                    </div>
+
+                    <div class="expert-specialties">
+                        <div class="specialties-label">🔧 Kỹ năng chuyên môn:</div>
+                        <span class="specialty-tag">Total Station</span>
+                        <span class="specialty-tag">GPS/GNSS</span>
+                        <span class="specialty-tag">UAV/Drone</span>
+                        <span class="specialty-tag">Pix4D</span>
+                        <span class="specialty-tag">GIS Software</span>
+                    </div>
+
+                    <div class="expert-projects">
+                        <div class="projects-label">📁 Dự án tiêu biểu:</div>
+                        <ul class="project-list">
+                            <li>Khảo sát tuyến cao tốc Vân Phong - Nha Trang</li>
+                            <li>Khảo sát cầu Thị Nại (Bình Định)</li>
+                            <li>Đo đạc Khu công nghiệp Phú Tài</li>
+                            <li>Khảo sát địa chất dự án Vinpearl Phú Quốc</li>
+                        </ul>
+                    </div>
+
+                    <div class="expert-achievements">
+                        <div class="achievements-label">🏆 Thành tích nổi bật:</div>
+                        <div class="achievement-item">Chuyên gia tư vấn UAV mapping cấp quốc gia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other expertise sections would follow with similar detailed structure... -->
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="images/logo-t27.png" alt="T27 Logo" class="footer-logo-image" onerror="this.src='images/logo-t27.svg'">
+        <p class="footer-tagline" style="color: var(--primary-orange) !important;">Cái tâm mọi công trình</p>
+        <p>&copy; 2025 Công Ty Cổ Phần Tư Vấn T27. All rights reserved.</p>
+        <p>Tư vấn thiết kế | Khảo sát - Địa hình Địa chất | Giám sát thi công | Quản lý dự án</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
