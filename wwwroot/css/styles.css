@@ -668,6 +668,109 @@ body {
     color: var(--primary-orange);
 }
 
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    position: relative;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background: var(--white);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Mobile Navigation */
+@media (max-width: 1024px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 90px;
+        right: -100%;
+        width: 300px;
+        height: calc(100vh - 90px);
+        background: rgba(0, 45, 77, 0.98);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+        gap: 10px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.open {
+        right: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav-container {
+        padding: 15px 30px;
+    }
+    
+    .logo-tagline {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .nav-container {
+        padding: 15px 20px;
+    }
+    
+    .logo-container {
+        min-width: auto;
+        gap: 10px;
+    }
+    
+    .logo-image {
+        height: 50px;
+    }
+    
+    .logo-tagline {
+        font-size: 1em;
+    }
+}
+
 /* Certifications Section */
 .certifications-section .cert-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
