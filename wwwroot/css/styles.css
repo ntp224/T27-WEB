@@ -51,12 +51,23 @@ body {
     align-items: center;
     gap: 15px;
     min-width: 300px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.logo-container:hover {
+    opacity: 0.85;
 }
 
 .logo-image {
     height: 60px;
     width: auto;
     object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover .logo-image {
+    transform: scale(1.05);
 }
 
 .logo {
