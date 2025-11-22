@@ -454,7 +454,15 @@
                 <img src="images/logo-t27.png" alt="T27 Logo" class="logo-image" onerror="this.src='images/logo-t27.svg'">
                 <div class="logo-tagline">Cái tâm mọi công trình</div>
             </div>
-            <ul class="nav-menu">
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="gioi-thieu.html">Giới thiệu</a></li>
                 <li><a href="du-an.html">Dự án</a></li>
@@ -837,6 +845,23 @@
                 } else {
                     navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
                 }
+            });
+        });
+
+        // Toggle mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu on nav link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                hamburger.classList.remove('active');
             });
         });
     </script>

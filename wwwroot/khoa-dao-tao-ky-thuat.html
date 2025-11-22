@@ -202,6 +202,51 @@
             .training-content {
                 padding: 40px 20px;
             }
+
+            /* Navigation styles for mobile */
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                border-top: 1px solid #ddd;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background: var(--primary-blue);
+                margin-bottom: 5px;
+                transition: all 0.3s ease;
+            }
+
+            .hamburger:hover span {
+                background: var(--accent-gold);
+            }
+
+            .hamburger:focus {
+                outline: none;
+            }
         }
     </style>
 </head>
@@ -213,7 +258,15 @@
                 <img src="images/logo-t27.png" alt="T27 Logo" class="logo-image" onerror="this.src='images/logo-t27.svg'">
                 <div class="logo-tagline">Cái tâm mọi công trình</div>
             </div>
-            <ul class="nav-menu">
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html#home">Trang chủ</a></li>
                 <li><a href="index.html#about">Giới thiệu</a></li>
                 <li><a href="index.html#projects">Dự án</a></li>

@@ -202,6 +202,54 @@
             .training-content {
                 padding: 40px 20px;
             }
+
+            /* Navigation Responsive */
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+            .nav-menu.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-end;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin-bottom: 4px;
+                background: var(--primary-blue);
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+
+            .hamburger:hover span {
+                background: var(--primary-orange);
+            }
+
+            .hamburger:focus {
+                outline: none;
+            }
         }
     </style>
 </head>
@@ -213,7 +261,15 @@
                 <img src="images/logo-t27.png" alt="T27 Logo" class="logo-image" onerror="this.src='images/logo-t27.svg'">
                 <div class="logo-tagline">Cáº£i tiáº¿n má»i cÃ´ng trÃ¬nh</div>
             </div>
-            <ul class="nav-menu">
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html#home">Trang chá»§</a></li>
                 <li><a href="index.html#about">Giá»›i thiá»‡u</a></li>
                 <li><a href="index.html#projects">Dá»± Ã¡n</a></li>
@@ -260,7 +316,7 @@
             </p>
             <p style="margin-top: 15px;">
                 <strong style="color: var(--primary-orange);">Tinh tháº§n Ä‘oÃ n káº¿t â€“ chia sáº» â€“ trÃ¡ch nhiá»‡m</strong> 
-                lÃ  ná»n táº£ng giÃºp T27 xÃ¢y dá»±ng má»™t mÃ´i trÆ°á»ng lÃ m viá»‡c trÃ n Ä‘áº§y yÃªu thÆ°Æ¡ng vÃ  gáº¯n bÃ³.
+                lÃ  ná»n táº£ng giÃºp T27 xÃ¢y dá»±ng má»™t mÃ´i trÆ°á»ng lÃ m viá»‡c trÃ n Ä‘áº§y yÃªu thÆ€ng vÃ  gáº¯n bÃ³.
             </p>
         </div>
 
@@ -283,7 +339,7 @@
                 <div class="session-body">
                     <div class="session-description">
                         ChÆ°Æ¡ng trÃ¬nh Trung Thu áº¥m Ã¡p vÃ  Ã½ nghÄ©a, mang Ä‘áº¿n niá»m vui cho cÃ¡c em nhá» con em CBNV 
-                        vÃ  táº¡o khÃ´ng khÃ­ Ä‘oÃ n viÃªn, gáº¯n káº¿t trong gia Ä‘Ã¬nh T27.
+                        vÃ  táº¡o khÃ´ng khÃ́i Ä‘oÃ n viÃªn, gáº¯n káº¿t trong gia Ä‘Ã¬nh T27.
                     </div>
 
                     <div class="session-preview">
@@ -368,7 +424,7 @@
 
                 <div class="session-body">
                     <div class="session-description">
-                        Giáº£i bÃ³ng Ä‘Ã¡ KDPM lÃ  sÃ¢n chÆ¡i thá»ƒ thao Ã½ nghÄ©a, táº¡o cÆ¡ há»™i giao lÆ°u, rÃ¨n luyá»‡n sá»©c khá»e 
+                        Giáº£i bÃ³ng Ä‘Ã¡ KDPM lÃ  sÃ¢n chÆ¡i thá»ƒ thao Ã½ nghÄ©a, táº¡o cÆ° há»™i giao lÆ°u, rÃ¨n luyá»‡n sá»©c khá»e 
                         vÃ  phÃ¡t huy tinh tháº§n Ä‘oÃ n káº¿t, fair-play giá»¯a cÃ¡c Ä‘Æ¡n vá»‹ trong ngÃ nh xÃ¢y dá»±ng.
                     </div>
 
