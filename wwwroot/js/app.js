@@ -24,7 +24,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Hamburger Menu Toggle - FIXED DOUBLE TOUCH ISSUE
+// Hamburger Menu Toggle - FIXED NAV LINKS ON DESKTOP
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
@@ -45,20 +45,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Toggle menu function
     function toggleMenu(e) {
-        // Prevent default and stop propagation
         if (e) {
             e.preventDefault();
             e.stopPropagation();
         }
         
-        // If animating, ignore
         if (isAnimating) {
             return;
         }
         
         isAnimating = true;
         
-        // Toggle classes
         const isOpen = navMenu.classList.contains('open');
         
         if (isOpen) {
@@ -69,19 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.add('open');
         }
         
-        // Reset animation flag after transition
         setTimeout(() => {
             isAnimating = false;
         }, 350);
     }
     
     // Close menu function
-    function closeMenu(e) {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        
+    function closeMenu() {
         if (isAnimating) return;
         
         isAnimating = true;
@@ -111,26 +102,35 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.addEventListener('click', toggleMenu);
     }
     
-    // Handle nav links
+    // Handle nav links - FIXED FOR DESKTOP
     const navLinks = navMenu.querySelectorAll('a');
     navLinks.forEach(link => {
         if (isTouchDevice) {
+            // On touch devices when menu is mobile
             link.addEventListener('touchstart', function(e) {
-                closeMenu();
-                // Let the link navigate after a small delay
-                setTimeout(() => {
-                    if (link.href) {
+                // Only handle if we're in mobile view (menu is closeable)
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    closeMenu();
+                    
+                    // Navigate after menu closes
+                    setTimeout(() => {
                         window.location.href = link.href;
-                    }
-                }, 300);
+                    }, 350);
+                }
+                // On touch devices in desktop view, let it work normally
             }, { passive: false });
-            
-            // Prevent click on touch devices
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-            });
         } else {
-            link.addEventListener('click', closeMenu);
+            // On desktop, just close menu if it's open (mobile view)
+            link.addEventListener('click', function(e) {
+                // Only close menu if we're in mobile view
+                if (window.innerWidth <= 1024 && navMenu.classList.contains('open')) {
+                    closeMenu();
+                }
+                // Let the link navigate normally - don't prevent default
+            });
         }
     });
     
@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {
-            detectTouch(); // Re-detect touch capability
+            detectTouch();
             
             if (window.innerWidth > 1024 && navMenu.classList.contains('open')) {
                 hamburger.classList.remove('active');
