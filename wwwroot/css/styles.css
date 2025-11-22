@@ -662,6 +662,10 @@ body {
     padding: 10px;
     z-index: 1001;
     position: relative;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
 .hamburger span {
@@ -670,6 +674,7 @@ body {
     background: var(--white);
     transition: all 0.3s ease;
     border-radius: 2px;
+    display: block;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -678,6 +683,7 @@ body {
 
 .hamburger.active span:nth-child(2) {
     opacity: 0;
+    transform: scale(0);
 }
 
 .hamburger.active span:nth-child(3) {
@@ -697,13 +703,15 @@ body {
         width: 300px;
         height: calc(100vh - 90px);
         background: rgba(0, 45, 77, 0.98);
+        backdrop-filter: blur(10px);
         flex-direction: column;
         align-items: flex-start;
         padding: 30px;
         gap: 10px;
-        transition: right 0.4s ease;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
         overflow-y: auto;
+        z-index: 999;
     }
     
     .nav-menu.open {

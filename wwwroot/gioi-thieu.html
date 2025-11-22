@@ -48,6 +48,23 @@
             font-weight: bold;
         }
 
+        /* Image version for mobile */
+        .org-chart-image {
+            display: none;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .org-chart-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
         .org-chart {
             display: flex;
             flex-direction: column;
@@ -385,21 +402,14 @@
                 font-size: 1.8em;
             }
 
-            .org-level-2,
-            .org-level-3 {
-                flex-direction: column;
-                align-items: center;
-                gap: 50px;
-            }
-
-            .org-level-2::before,
-            .org-level-3::before {
+            /* Hide the HTML org chart on mobile */
+            .org-chart {
                 display: none;
             }
 
-            .director-card::after,
-            .deputy-card::before {
-                display: none;
+            /* Show the image version on mobile */
+            .org-chart-image {
+                display: block;
             }
 
             .org-chart-container {
@@ -469,6 +479,11 @@
         <!-- Organization Structure -->
         <div class="org-chart-container">
             <h2 class="org-chart-title">Sơ đồ điều hành công ty</h2>
+            
+            <!-- Image version for mobile devices -->
+            <div class="org-chart-image">
+                <img src="images/leaders/Sơ đồ điều hành công ty.png" alt="Sơ đồ điều hành công ty T27" onerror="this.style.display='none'">
+            </div>
             
             <div class="org-chart">
                 <!-- Level 1: Chairman -->

@@ -24,37 +24,169 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Hamburger Menu Toggle
+// Hamburger Menu Toggle - FIXED DOUBLE TOUCH ISSUE
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
     
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('open');
-        });
+    if (!hamburger || !navMenu) {
+        return;
+    }
+    
+    let isAnimating = false;
+    let isTouchDevice = false;
+    
+    // Detect if device supports touch
+    function detectTouch() {
+        isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    }
+    
+    detectTouch();
+    
+    // Toggle menu function
+    function toggleMenu(e) {
+        // Prevent default and stop propagation
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
         
-        // Close menu when clicking on a link
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('open');
-            });
-        });
+        // If animating, ignore
+        if (isAnimating) {
+            return;
+        }
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = navMenu.contains(event.target);
-            const isClickOnHamburger = hamburger.contains(event.target);
+        isAnimating = true;
+        
+        // Toggle classes
+        const isOpen = navMenu.classList.contains('open');
+        
+        if (isOpen) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('open');
+        } else {
+            hamburger.classList.add('active');
+            navMenu.classList.add('open');
+        }
+        
+        // Reset animation flag after transition
+        setTimeout(() => {
+            isAnimating = false;
+        }, 350);
+    }
+    
+    // Close menu function
+    function closeMenu(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        if (isAnimating) return;
+        
+        isAnimating = true;
+        
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('open');
+        
+        setTimeout(() => {
+            isAnimating = false;
+        }, 350);
+    }
+    
+    // Handle hamburger button events
+    if (isTouchDevice) {
+        // On touch devices, only use touchstart
+        hamburger.addEventListener('touchstart', function(e) {
+            toggleMenu(e);
+        }, { passive: false });
+        
+        // Prevent click event on touch devices to avoid double trigger
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    } else {
+        // On non-touch devices, use click
+        hamburger.addEventListener('click', toggleMenu);
+    }
+    
+    // Handle nav links
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+        if (isTouchDevice) {
+            link.addEventListener('touchstart', function(e) {
+                closeMenu();
+                // Let the link navigate after a small delay
+                setTimeout(() => {
+                    if (link.href) {
+                        window.location.href = link.href;
+                    }
+                }, 300);
+            }, { passive: false });
             
-            if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('open')) {
+            // Prevent click on touch devices
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+            });
+        } else {
+            link.addEventListener('click', closeMenu);
+        }
+    });
+    
+    // Close menu when clicking/touching outside
+    function handleOutsideInteraction(event) {
+        if (!navMenu.classList.contains('open')) {
+            return;
+        }
+        
+        if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+            closeMenu();
+        }
+    }
+    
+    if (isTouchDevice) {
+        document.addEventListener('touchstart', handleOutsideInteraction, { passive: true });
+    } else {
+        document.addEventListener('click', handleOutsideInteraction);
+    }
+    
+    // Close menu on window resize to desktop size
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            detectTouch(); // Re-detect touch capability
+            
+            if (window.innerWidth > 1024 && navMenu.classList.contains('open')) {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('open');
+                isAnimating = false;
+            }
+        }, 250);
+    });
+    
+    // Close menu on ESC key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && navMenu.classList.contains('open')) {
+            closeMenu();
+        }
+    });
+    
+    // Prevent body scroll when menu is open
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'class') {
+                if (navMenu.classList.contains('open')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
             }
         });
-    }
+    });
+    
+    observer.observe(navMenu, { attributes: true });
 });
 
 // Set default opacity to 50% (0.5)
