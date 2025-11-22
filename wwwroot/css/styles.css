@@ -181,34 +181,6 @@ body {
     opacity: 0.95;
 }
 
-/* Contact Bar */
-.contact-bar {
-    background: var(--primary-orange);
-    padding: 15px 60px;
-    color: var(--white);
-}
-
-.contact-bar-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1em;
-}
-
-.contact-item strong {
-    font-weight: 600;
-}
-
 /* Intro Section */
 .intro-section {
     padding: 120px 60px;
